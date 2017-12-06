@@ -1,0 +1,30 @@
+{
+  "name": "newsfeedsite",
+  "version": "1.0.0",
+  "description": "web app news article scraper",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/annejsize/NewsFeedSite.git"
+  },
+  "author": "jenna king",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/annejsize/NewsFeedSite/issues"
+  },
+  "homepage": "https://github.com/annejsize/NewsFeedSite#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "cheerio": "^1.0.0-rc.2",
+    "express": "^4.16.2",
+    "express-handlebars": "^3.0.0",
+    "mongoose": "^4.13.5",
+    "morgan": "^1.9.0",
+    "nodemon": "^1.12.4",
+    "request": "^2.83.0"
+  }
+}
