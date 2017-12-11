@@ -10,6 +10,27 @@ var cheerio = require("cheerio");
 // Require all models
 var db = require("./models");
 
+// Connection code for deployment
+var databaseUri = "mongodb://localhost/jezebel";
+
+if (process.env.MONGODB_URI) {
+  mongoose.connect(process.env.MONGODB_URI);
+} else {
+  mongoose.connect(databaseUri);
+}
+
+var db1 = mongoose.connection;
+
+db1.on("error", function(err) {
+  console.log("Mongoose Error: ", err);
+});
+
+db1.once("open", function() {
+  console.log("Mongoose connection successful.");
+});
+
+// End connection code for deployment
+
 var PORT = process.env.PORT || 3000;
 
 // Initialize Express
@@ -24,9 +45,12 @@ app.use(express.static("public"));
 // Set mongoose to leverage built in JavaScript ES6 Promises
 // Connect to the Mongo DB
 mongoose.Promise = Promise;
-mongoose.connect("mongodb://localhost/jezebel", {
+mongoose.connect(MONGODB_URI, {
   useMongoClient: true
 });
+// mongoose.connect("mongodb://localhost/jezebel", {
+//   useMongoClient: true
+// });
 
 // Routes
 
