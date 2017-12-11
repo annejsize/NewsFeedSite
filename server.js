@@ -13,11 +13,13 @@ var db = require("./models");
 // Connection code for deployment
 var databaseUri = "mongodb://localhost/jezebel";
 
-if (process.env.MONGODB_URI) {
-  mongoose.connect(process.env.MONGODB_URI);
-} else {
-  mongoose.connect(databaseUri);
-}
+var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/jezebel";
+
+// if (process.env.MONGODB_URI) {
+//   mongoose.connect(process.env.MONGODB_URI);
+// } else {
+//   mongoose.connect(databaseUri);
+// }
 
 var db1 = mongoose.connection;
 
